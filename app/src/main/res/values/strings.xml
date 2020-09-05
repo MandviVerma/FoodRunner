@@ -1,0 +1,139 @@
+<resources>
+    <string name="app_name">Food Runner</string>
+    <string name="food_runner">FoodRunner</string>
+    <string name="mobile_number_10_digits">Mobile Number (10 digits)</string>
+    <string name="password">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="forgot_password"><u>Forgot Password?</u></string>
+    <string name="don_t_have_an_account_sign_up_now"><u>Don\'t have an account?Sign up now</u></string>
+    <string name="name_min_3_characters">Name (Min.3 characters)</string>
+    <string name="email_address">Email Address</string>
+    <string name="delivery_address">Delivery Address</string>
+    <string name="password_min_4_characters">Password (Min. 4 characters</string>
+    <string name="register">REGISTER</string>
+    <string name="next">NEXT</string>
+    <string name="enter_your_registered_mobile_number_and_email_below">Enter your registered Mobile number and email below:</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="rate">₹ %s/person</string>
+    <string name="menu_price">₹ %s</string>
+
+    <string name="search">Search</string>
+    <string name="sort">Sort</string>
+    <string name="whatsapp">Whatsapp</string>
+    <string name="instagram">Instagram</string>
+    <string name="apply">Apply</string>
+    <string name="rating">Rating</string>
+    <string name="cost_for_one">Cost For One</string>
+    <string name="clear_all">Clear All</string>
+    <string name="choose_from_menu_listed_below">Choose from menu listed below</string>
+    <string name="view_cart">View Cart</string>
+    <string name="add">Add</string>
+    <string name="place_order">Place Order (Total Rs. %s)</string>
+    <string name="ordering_from_s">Ordering from : %s</string>
+    <string name="your_order_has_been_placed_successfully_placed">Your order has been placed successfully placed!</string>
+    <string name="ok">Okay</string>
+    <string name="your_previous_orders_are_listed_below">Your Previous orders are listed below</string>
+    <string name="total_cost_s">Total Cost ₹%s</string>
+    <string name="name">Name</string>
+    <string name="phone_no">Phone no</string>
+    <string name="email_id">email id</string>
+    <string name="city_name">City</string>
+    <string name="enter_otp">Enter Otp</string>
+    <string name="runner">Runner</string>
+    <string name="submit">Submit</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="apply_coupon">Apply Coupon</string>
+
+    <string name="apply_promo_code">Apply Promo Code</string>
+    <string name="remove">Remove</string>
+    <string name="available_promo_code">Available Promo Code</string>
+    <string name="get_25_off_valid_on_orders_above_rs_399">Get 25% OFF. Valid on orders above Rs.399</string>
+    <string name="max25">MAX25</string>
+    <string name="max10">MAX10</string>
+    <string name="get_10_off_valid_on_orders_above_rs_149">Get 10% OFF. Valid on orders above Rs.149</string>
+    <string name="food">FOOD</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="Name">Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="order_from_s">Order from : %s</string>
+
+
+    <string name="email">Email</string>
+    <string name="city">City</string>
+
+
+    <string name="change"><u>Change</u></string>
+    <string name="deliver_to_address_s">Deliver to/n  %s</string>
+    <string name="_20_off_on_orders_above_500">20% Off on orders above ₹500</string>
+    <string name="_10_off_on_orders_above_200">10% Off on orders above ₹200</string>
+    <string name="_20_off_on_orders_above_rs_500">20% off on orders above Rs.500</string>
+    <string name="_10_off_on_orders_above_rs_200">10% off on orders above Rs.200</string>
+    <string name="enter_details">Enter Details</string>
+    <string name="registered_email">Registered Email</string>
+    <string name="hello">Hello</string>
+    <string name="sign_into_your_account">Sign into your Account</string>
+    <string name="don_t_have_an_account">Don\'t have an Account?</string>
+    <string name="register_now">Register Now</string>
+    <string name="s_s_ss">ʏᴏᴜʀ ᴏʀᴅᴇʀ ʜᴀs ʙᴇᴇɴ ᴘʟᴀᴄᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ!</string>
+    <string name="enter_otp_and_details">Enter OTP and Details</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="Sort">ՏօɾԵ</string>
+
+    <string name="add_your_favourite">Add Your Favourite Restaurants.</string>
+    <string name="retry">Retry</string>
+    <string name="order">Place Your First order and enjoy the meal</string>
+
+    <string name="restaurant_name">Restaurant Name</string>
+    <string name="dosa">Dosa</string>
+    <string name="reorder">ReOrder</string>
+    <string name="create_account">Create Account</string>
+
+    <string name="ques1">Q1.What is Food Runner?</string>
+    <string name="ans1">A.1 Food Runner is an online food delivery app built to save you time and money when ordering food. Food Runner provide online ordering systems to restaurants and delivery services.As a portal, it allows you find nearby restaurants that are using our software, view their entire menu and select exactly what you want.Place your order and  pay when you pick up. </string>
+
+    <string name="ques2">Q2.Can I edit my Order?</string>
+    <string name="ans2">A2. Your order can be edited before it reaches the kitchen.You could contact the customer support team via a call to do so.Once an order is placed and the kitchen starts preparing your food,you may not edit its contents.</string>
+
+    <string name="ques3">Q3.Can I get discounts on orders?</string>
+    <string name="ans3">A3.Yes you can get discount by applying coupon as provided.</string>
+
+    <string name="ques4">Q4.I dont remember my password?</string>
+    <string name="ans4">A4.You have already created an account but you cant remember your password.Click on Forgot Password.Fill out your the required details and you will receive an otp onyour registered email id.The otp sent on the email canbe used for next 24 hours</string>
+
+    <string name="ques5">Q5.Favourite Restaurants?</string>
+    <string name="ans5">A5.You can easily save your favourite restaurant in your favourites list so that you can have quick access on them.You just have to click on the heart icon present in the list of restaurants.</string>
+
+    <string name="ques6">Q6.Share Restaurants?</string>
+    <string name="ans6">A6.you can easily share your favourite ones with your friends,family and others easily.You just have to click on the share icon present in the list of restaurants.</string>
+
+    <string name="ques7">Q7.Order History?</string>
+    <string name="ans7">A7.Here you can see your past placed orders.</string>
+
+    <string name="ques8">Q8.Sort By cost of one and rating?</string>
+    <string name="ans8">A8.Simply click on the sort icon in the toolbar then you get options either sort by cost of one or sort by ratings.Choose accordingly and get the sorted list.</string>
+
+    <string name="ques9">Q9.Search Restaurants?</string>
+    <string name="ans9">A9.You can easily click on the search icon and search restaurant by thier names.</string>
+
+    <string name="ques10">Q10.Reorder?</string>
+    <string name="ans10">A10.Reorder is a very common functionality that we see in many other food ordering app nowadays.So I added this button of reorder,though I have not added the functionality to the button.I could have made it functional if I had recieved the restaurant id in the response.</string>
+
+</resources>

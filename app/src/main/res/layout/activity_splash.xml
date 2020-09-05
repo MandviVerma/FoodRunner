@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_screen_bg_fr"
+    android:orientation="vertical"
+    android:weightSum="3"
+    tools:context=".ui.activities.SplashActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvFoodRunner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/racing_sans_one_regular"
+            android:gravity="center"
+            android:text="Food Runner"
+            android:textColor="#fff"
+            android:textSize="35sp" />
+
+        <ImageView
+            android:id="@+id/ivDeliveryMan"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:gravity="center"
+            android:src="@drawable/splash_screen_delivery_man" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/ivFoodQuote"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="15dp"
+            android:gravity="center"
+            android:src="@drawable/food_quote" />
+    </RelativeLayout>
+</LinearLayout>
