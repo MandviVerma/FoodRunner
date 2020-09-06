@@ -88,7 +88,7 @@
             android:layout_marginEnd="6dp"
             android:background="@drawable/grey"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
 
             <TextView
@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="280dp"
@@ -188,7 +188,7 @@
             android:layout_marginEnd="2dp"
             android:background="@drawable/grey"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/q11_ans"
@@ -212,7 +212,7 @@
             android:layout_marginEnd="2dp"
             android:background="@drawable/grey"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/q12_ans"
@@ -234,7 +234,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="280dp"
@@ -306,7 +306,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="280dp"
@@ -382,7 +382,7 @@
             android:layout_marginEnd="2dp"
             android:background="@drawable/grey"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/q111_ans"
@@ -406,7 +406,7 @@
             android:layout_marginEnd="2dp"
             android:background="@drawable/grey"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/q112_ans"
@@ -431,7 +431,7 @@
             android:layout_marginEnd="2dp"
             android:background="@drawable/grey"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/q121_ans"
@@ -455,7 +455,7 @@
             android:layout_marginEnd="2dp"
             android:background="@drawable/grey"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/q122_ans"
@@ -481,7 +481,7 @@
             android:layout_marginEnd="50dp"
             android:background="@drawable/pink"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -506,7 +506,7 @@
             android:layout_marginEnd="50dp"
             android:background="@drawable/pink"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -531,7 +531,7 @@
             android:layout_marginEnd="50dp"
             android:background="@drawable/pink"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -556,7 +556,7 @@
             android:layout_marginEnd="50dp"
             android:background="@drawable/pink"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"

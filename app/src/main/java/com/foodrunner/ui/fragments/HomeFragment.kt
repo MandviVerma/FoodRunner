@@ -90,7 +90,7 @@ class HomeFragment : Fragment() {
             RestaurantsAdapter(context, it, object : RestaurantsAdapter.OnItemClickListener {
                 override fun onShareClick(position: Int, view: View) {
                     val share = Intent(Intent.ACTION_SEND)
-                    share.putExtra(Intent.EXTRA_TEXT, "Are You Hungry,TRY US! " + it[position].name +
+                    share.putExtra(Intent.EXTRA_TEXT, "Food is calling you,TRY US! " + it[position].name +
                             " Our rating is " + it[position].rating)
                     share.type = "text/plain"
                     context?.startActivity(Intent.createChooser(share, "Share Via"))
@@ -176,18 +176,7 @@ class HomeFragment : Fragment() {
 
     private fun apiCall() {
 
-
-        /**
-        I have used retrofit library instead of Volley library as my teacher suggested to use this library,
-        so I tried using it.
-        I have also used Volley Library after learning through Internshala videos but I have commented that code
-        MainActivity :: Line 166
-
-         */
-
-
         val  api= retrofit.create(FoodRunnerService::class.java)
-
         val call =api.getRestaurantList()
 
         call.enqueue(object : Callback<FetchRestaurantDetailResponse> {
@@ -196,17 +185,13 @@ class HomeFragment : Fragment() {
                 Log.i("h","on fail"+t.toString())
             }
 
-            override fun onResponse(
-                call: Call<FetchRestaurantDetailResponse>,
-                response: retrofit2.Response<FetchRestaurantDetailResponse>
-            ) {
+            override fun onResponse(call: Call<FetchRestaurantDetailResponse>,
+                response: retrofit2.Response<FetchRestaurantDetailResponse>) {
                 Log.i("d",response.body().toString())
                 restaurantList.clear()
                 response.body()?.data?.data?.forEach {
                     restaurantList.add(it!!)
                 }
-
-
 
                 if(favoriteList.isNotEmpty()) {
                     favoriteList.forEach { favoriteRestaurant ->
@@ -254,52 +239,9 @@ class HomeFragment : Fragment() {
 
     }
 
-    fun showShareChooser(
-        popupWindow: BottomSheetDialog?,
-        fragment: HomeFragment,
-        layout: Int,
-        restaurantDetails: FetchRestaurantDetailResponse.Data.InternalData
-    ): BottomSheetDialog? {
 
-        val popupView = LayoutInflater.from(fragment.context).inflate(layout, null)
-        popupWindow?.setContentView(popupView)
-        popupWindow?.show()
 
-        popupView.flWhatsapp?.setOnClickListener {
-            popupWindow?.dismiss()
-            sendMessage(it,"Whatsapp",restaurantDetails)
 
-        }
-
-        popupView.flInsta?.setOnClickListener {
-            popupWindow?.dismiss()
-            sendMessage(it,"Instagram",restaurantDetails)
-
-        }
-        return popupWindow
-
-    }
-
-    fun sendMessage(
-        view: View,
-        platform: String,
-        restaurantDetails: FetchRestaurantDetailResponse.Data.InternalData
-    ) {
-
-        val intent = Intent(Intent.ACTION_SEND)
-        intent.type = "text/plain"
-        val text = "Hey, Try food from "+ restaurantDetails.name +
-                "and its rating is " +restaurantDetails.rating +". Enjoy your food!! "
-        // change with required  application package
-
-        if(platform =="Whatsapp")
-            intent.setPackage("com.whatsapp")
-        else if(platform =="Instagram")
-            intent.setPackage("com.instagram.android")
-
-        intent.putExtra(Intent.EXTRA_TEXT, text)
-        startActivity(Intent.createChooser(intent, text))
-    }
 
 
     private class AddFavoriteAsyncTask(

@@ -76,12 +76,10 @@ class RegistrationActivity : AppCompatActivity() {
 
                 val authModel = AuthModel(
                     et_name.text.toString(),
-                    et_delivery_address.text.toString(),
-                    et_email.text.toString(),
                     et_mobile_number.text.toString(),
-                    et_password.text.toString()
-
-                )
+                    et_password.text.toString(),
+                    et_delivery_address.text.toString(),
+                    et_email.text.toString())
 
                 Log.i("g", Gson().toJson(authModel))
                 registerUser(authModel)
