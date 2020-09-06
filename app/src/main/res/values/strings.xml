@@ -64,8 +64,8 @@
     <string name="apply_promo_code">Apply Promo Code</string>
     <string name="remove">Remove</string>
     <string name="available_promo_code">Available Promo Code</string>
-    <string name="get_25_off_valid_on_orders_above_rs_399">Get 25% OFF. Valid on orders above Rs.399</string>
-    <string name="max25">MAX25</string>
+    <string name="get_20_off_valid_on_orders_above_rs_399">Get 20% OFF. Valid on orders above Rs.399</string>
+    <string name="max25">MAX20</string>
     <string name="max10">MAX10</string>
     <string name="get_10_off_valid_on_orders_above_rs_149">Get 10% OFF. Valid on orders above Rs.149</string>
     <string name="food">FOOD</string>

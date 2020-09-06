@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +23,8 @@ import com.foodrunner.model.Food
 import com.foodrunner.model.RestaurantDetailsResponse
 import com.foodrunner.ui.adapter.RestaurantDetailsAdapter
 import kotlinx.android.synthetic.main.activity_restaurant_details.*
+import kotlinx.android.synthetic.main.activity_restaurant_details.rl_retry
+import kotlinx.android.synthetic.main.activity_restaurant_details.txt_retry
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -166,6 +169,10 @@ class RestaurantDetailsActivity : AppCompatActivity() {
                     else
                         btnViewCart.visibility = View.GONE
 
+
+                }
+
+                override fun onFavClick(position: Int, view: View) {
 
                 }
 

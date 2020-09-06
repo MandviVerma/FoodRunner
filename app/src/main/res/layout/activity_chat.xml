@@ -1,230 +1,577 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context=".ui.activities.ChatActivity">
+    android:layout_height="wrap_content">
 
     <LinearLayout
-        android:id="@+id/ll_chat"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".ui.activities.ChatActivity">
 
         <LinearLayout
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/pink"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="6dp"
-                android:fontFamily="@font/rambla_regular"
-                android:text="Hello,please select the order for \n which  you seek help"
-                android:textColor="#000"
-                android:textSize="14sp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="261dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="25dp"
-            android:background="@drawable/white"
+            android:id="@+id/ll_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/pink"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="6dp"
                     android:fontFamily="@font/rambla_regular"
-                    android:text="Order from"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="14sp"
-                    android:layout_marginTop="6dp"
-                    />
+                    android:text="Hello,please select the order for \n which  you seek help"
+                    android:textColor="#000"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_chat_white_box"
+                android:layout_width="261dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="25dp"
+                android:background="@drawable/white"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/ques_rest_name"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
 
-                    android:fontFamily="@font/rambla_bold"
-                    android:text="Pind Tadka"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="14sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="@font/rambla_regular"
+                        android:text="Order from"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/ques_rest_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="6dp"
+
+                        android:fontFamily="@font/rambla_bold"
+                        android:text="Pind Tadka"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
 
             </LinearLayout>
-
-
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ans"
-        android:layout_width="280dp"
-        android:layout_height="30dp"
-        android:layout_gravity="end"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="6dp"
-        android:background="@drawable/grey"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-
-        <TextView
-            android:id="@+id/ans_rest_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="6dp"
-            android:fontFamily="@font/rambla_regular"
-            android:text="@string/order_from_s"
-            android:textColor="#000"
-            android:textSize="14sp" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/q1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:orientation="vertical"
-        android:visibility="gone">
 
         <LinearLayout
+            android:id="@+id/ans"
             android:layout_width="280dp"
             android:layout_height="30dp"
-            android:layout_marginStart="6dp"
+            android:layout_gravity="end"
             android:layout_marginTop="10dp"
-            android:background="@drawable/pink"
-            android:orientation="vertical">
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/grey"
+            android:orientation="vertical"
+            android:visibility="visible">
+
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="6dp"
-                android:fontFamily="@font/rambla_regular"
-                android:text="Hi,how can we help you today?"
-                android:textColor="#000"
-                android:textSize="14sp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="261dp"
-            android:layout_height="65dp"
-            android:layout_marginStart="25dp"
-            android:background="@drawable/white"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/q11"
+                android:id="@+id/ans_rest_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="6dp"
                 android:fontFamily="@font/rambla_regular"
-                android:text="My Order is taking too long."
-                android:textColor="@color/colorPrimary"
+                android:text="@string/order_from_s"
+                android:textColor="#000"
                 android:textSize="14sp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:background="#f0f0f0" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_q1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="280dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/pink"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/rambla_regular"
+                    android:text="Hi,how can we help you today?"
+                    android:textColor="#000"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/q11_wb"
+
+                android:layout_width="261dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="25dp"
+                android:background="@drawable/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/q11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/rambla_regular"
+                    android:text="My Order is taking too long."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#f0f0f0" />
+
+
+                <TextView
+                    android:id="@+id/q12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/rambla_regular"
+                    android:text="I recieved bad quality food."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_q11_ans"
+            android:layout_width="280dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/grey"
+            android:orientation="vertical"
+            android:visibility="visible">
 
             <TextView
-                android:id="@+id/q12"
+                android:id="@+id/q11_ans"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/rambla_regular"
+                android:text="My order is taking too long."
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_q12_ans"
+            android:layout_width="280dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/grey"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/q12_ans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="6dp"
                 android:fontFamily="@font/rambla_regular"
                 android:text="I recieved bad quality food."
-                android:textColor="@color/colorPrimary"
+                android:textColor="#000"
                 android:textSize="14sp" />
+
+
         </LinearLayout>
-    </LinearLayout>
 
-
-    <LinearLayout
-        android:id="@+id/ll_q11_ans"
-        android:layout_width="280dp"
-        android:layout_height="30dp"
-        android:layout_gravity="end"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="2dp"
-        android:background="@drawable/grey"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/q11_ans"
+        <LinearLayout
+            android:id="@+id/ll_q11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="6dp"
-            android:fontFamily="@font/rambla_regular"
-            android:text="My order is taking too long."
-            android:textColor="#000"
-            android:textSize="14sp" />
+            android:layout_marginEnd="50dp"
+            android:orientation="vertical"
+            android:visibility="visible">
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="280dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/pink"
+                android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/ll_q12_ans"
-        android:layout_width="280dp"
-        android:layout_height="30dp"
-        android:layout_gravity="end"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="2dp"
-        android:background="@drawable/grey"
-        android:orientation="vertical"
-        android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/rambla_regular"
+                    android:text="We are sorry to hear this."
+                    android:textColor="#000"
+                    android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/q12_ans"
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/q111_wb"
+
+                android:layout_width="261dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="25dp"
+                android:background="@drawable/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/q111"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/rambla_regular"
+                    android:text="Contact your delivery valet."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#f0f0f0" />
+
+
+                <TextView
+                    android:id="@+id/q112"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/rambla_regular"
+                    android:text="Just want to inform."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_q12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="6dp"
-            android:fontFamily="@font/rambla_regular"
-            android:text="I recieved bad quality food."
-            android:textColor="#000"
-            android:textSize="14sp" />
+            android:layout_marginEnd="50dp"
+            android:orientation="vertical"
+            android:visibility="visible">
 
+            <LinearLayout
+                android:layout_width="280dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/pink"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/rambla_regular"
+                    android:text="We are sorry to hear this."
+                    android:textColor="#000"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/q121_wb"
+
+                android:layout_width="261dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="25dp"
+                android:background="@drawable/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/q121"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/rambla_regular"
+                    android:text="Food was over cooked."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#f0f0f0" />
+
+
+                <TextView
+                    android:id="@+id/q122"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/rambla_regular"
+                    android:text="Spillage in packaging."
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_q111_ans"
+            android:layout_width="280dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/grey"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/q111_ans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/rambla_regular"
+                android:text="Contact your Delivery valet."
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_q112_ans"
+            android:layout_width="280dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/grey"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/q112_ans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/rambla_regular"
+                android:text="Just want to inform.."
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_q121_ans"
+            android:layout_width="280dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/grey"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/q121_ans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/rambla_regular"
+                android:text="Food was over cooked."
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_q122_ans"
+            android:layout_width="280dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/grey"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/q122_ans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/rambla_regular"
+                android:text="Spillage in package."
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/contact_ans"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/pink"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/rambla_regular"
+                android:text="We will contact the delivery valet and tell you soon."
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/just_ans"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/pink"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/rambla_regular"
+                android:text="Thank you,we will be more careful next time."
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/food_ans"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/pink"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/rambla_regular"
+                android:text="We will contact the restaurant and solve your queries."
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/spillage_ans"
+            android:layout_width="280dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/pink"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/rambla_regular"
+                android:text="Sorry,we will be more careful next time."
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
 
-
-</LinearLayout>
+</ScrollView>

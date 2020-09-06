@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#ffffff"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="2dp"
         android:text="@string/available_promo_code"
@@ -30,7 +30,6 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
-                android:text="@string/get_25_off_valid_on_orders_above_rs_399"
+                android:text="@string/get_20_off_valid_on_orders_above_rs_399"
                 android:textColor="#000"
                 android:textSize="14sp"
                 />
