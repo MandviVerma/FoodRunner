@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_auth">
+    android:layout_height="wrap_content"
+   >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_auth">
 
     <LinearLayout
         android:id="@+id/ll_login"
@@ -196,6 +200,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
+                android:textColor= "#000000"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -213,5 +218,5 @@
             android:background="@drawable/btn_next" />
 
     </LinearLayout>
-
-</FrameLayout>
+    </LinearLayout>
+</ScrollView>

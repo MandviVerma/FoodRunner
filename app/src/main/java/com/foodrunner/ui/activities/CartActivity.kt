@@ -23,6 +23,9 @@ import com.foodrunner.model.PlaceOrderModel
 import com.foodrunner.model.CartResponse
 import com.foodrunner.ui.adapter.CartMenuItemAdapter
 import com.foodrunner.ui.fragments.ApplyCouponFragment
+import com.foodrunner.utils.Constants.Companion.BASE_URL
+import com.foodrunner.utils.Constants.Companion.FOOD_RUNNER
+import com.foodrunner.utils.Constants.Companion.RESTAURANT_ID
 import kotlinx.android.synthetic.main.activity_cart.*
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -47,18 +50,15 @@ class CartActivity : AppCompatActivity(), ApplyCouponFragment.CouponCallback {
     lateinit var applyCouponFragment : ApplyCouponFragment
     private var couponApplied =false
     private var nameCoupon :String = ""
-    var BASE_URL = "http://13.235.250.119/"
     lateinit var httpClient: OkHttpClient.Builder
     lateinit var retrofit: Retrofit
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
         supportActionBar?.hide()
 
-
-        val prefs: SharedPreferences = getSharedPreferences("Food Runner", Context.MODE_PRIVATE)!!
+        val prefs: SharedPreferences = getSharedPreferences(FOOD_RUNNER, Context.MODE_PRIVATE)!!
 
         httpClient = OkHttpClient.Builder()
         retrofit = Retrofit.Builder()
@@ -68,41 +68,30 @@ class CartActivity : AppCompatActivity(), ApplyCouponFragment.CouponCallback {
             .build()
 
 
-
-        restaurantId = intent.getStringExtra("restaurantId") ?: ""
+        restaurantId = intent.getStringExtra(RESTAURANT_ID) ?: ""
         restaurantName = intent.getStringExtra("restaurantName") ?: ""
         restaurantImage = intent.getStringExtra("imageUrl") ?: ""
         userId = prefs.getString("userId", "") ?: ""
         address = prefs.getString("address","")?:""
 
         tv_apply_coupon.text = getString(R.string.apply_coupon)
-
         tv_address_name.text=address
-
         tv_restaurant_name.text =restaurantName
-
         Glide.with(this).load(restaurantImage).apply(RequestOptions.centerCropTransform()).into(ivRestaurant)
-
 
         initRecyclerView()
         getCart()
 
         initClicks()
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id=item.itemId
-        if(id==android.R.id.home)
-        {
+        if(id==android.R.id.home) {
            super.onBackPressed()
         }
-
         return super.onOptionsItemSelected(item)
     }
-
-
-
 
     private fun initClicks() {
         btn_place_order.setOnClickListener {

@@ -14,7 +14,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.foodrunner.api.FetchRestaurantDetailResponse
+import com.foodrunner.model.FetchRestaurantDetailResponse
 import com.foodrunner.db.AppDatabase
 import com.foodrunner.db.RoomDao
 import com.foodrunner.model.FavoriteModel

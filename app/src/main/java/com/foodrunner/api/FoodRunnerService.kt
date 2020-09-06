@@ -1,10 +1,9 @@
 package com.foodrunner.api
 
-
 import com.foodrunner.model.*
+import com.foodrunner.model.FetchRestaurantDetailResponse
 import retrofit2.Call
 import retrofit2.http.*
-
 
 interface FoodRunnerService {
 
@@ -24,7 +23,6 @@ interface FoodRunnerService {
     @POST("v2/reset_password/fetch_result ")
     fun resetPassword(@Body resetPasswordModel: ResetPasswordModel) :Call<ResetPasswordResponse>
 
-
     @Headers("content-type:application/json", "token:ad314db5e5b1e2")
     @GET("v2/restaurants/fetch_result/")
     fun getRestaurantList() :Call<FetchRestaurantDetailResponse>
@@ -36,7 +34,6 @@ interface FoodRunnerService {
     @Headers("content-type:application/json", "token:ad314db5e5b1e2")
     @POST("v2/place_order/fetch_result")
     fun placeOrder(@Body placeOrderModel: PlaceOrderModel) :Call<CartResponse>
-
 
     @Headers("content-type:application/json", "token:ad314db5e5b1e2")
     @GET("v2/orders/fetch_result/{user_id}")

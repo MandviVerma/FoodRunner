@@ -18,15 +18,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.foodrunner.R
-import com.foodrunner.api.FetchRestaurantDetailResponse
+import com.foodrunner.model.FetchRestaurantDetailResponse
 import com.foodrunner.api.FoodRunnerService
 import com.foodrunner.db.AppDatabase
 import com.foodrunner.db.RoomDao
 import com.foodrunner.model.FavoriteModel
 import com.foodrunner.ui.activities.RestaurantDetailsActivity
 import com.foodrunner.ui.adapter.RestaurantsAdapter
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.android.synthetic.main.dialog_share.view.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -126,6 +124,7 @@ class HomeFragment : Fragment() {
                     intent.putExtra("restaurantName", it[position].name)
                     intent.putExtra("isFav", it[position].isFav)
                     intent.putExtra("imageUrl", it[position].imageUrl)
+                    intent.putExtra("restaurantResponse",it[position])
                     startActivity(intent)
                 }
             })
@@ -186,7 +185,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun onResponse(call: Call<FetchRestaurantDetailResponse>,
-                response: retrofit2.Response<FetchRestaurantDetailResponse>) {
+                                    response: retrofit2.Response<FetchRestaurantDetailResponse>) {
                 Log.i("d",response.body().toString())
                 restaurantList.clear()
                 response.body()?.data?.data?.forEach {
@@ -244,7 +243,7 @@ class HomeFragment : Fragment() {
 
 
 
-    private class AddFavoriteAsyncTask(
+    public class AddFavoriteAsyncTask(
         private var context: Context?,
         private var favoriteModel: FavoriteModel,
         private var param: String
@@ -321,6 +320,11 @@ class HomeFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        GetFavoriteList(context).execute()
+        apiCall()
+    }
 }
 
 

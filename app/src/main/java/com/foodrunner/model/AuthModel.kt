@@ -2,7 +2,6 @@ package com.foodrunner.model
 
 import com.google.gson.annotations.SerializedName
 
-
 data class AuthModel(
     @SerializedName("name")
     var name: String? = "",

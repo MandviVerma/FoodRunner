@@ -40,7 +40,7 @@ class OrderHistoryAdapter(
         private val tvDate = itemView.findViewById<TextView>(R.id.tv_Date)
         private val tvTotalPrice = itemView.findViewById<TextView>(R.id.tv_total_cost)
         private val rvFoodItems = itemView.findViewById<RecyclerView>(R.id.rv_order_items)
-        private val tvChat = itemView.findViewById<RecyclerView>(R.id.tvChat)
+        private val tvChat = itemView.findViewById<TextView>(R.id.tvChat)
 
 
 

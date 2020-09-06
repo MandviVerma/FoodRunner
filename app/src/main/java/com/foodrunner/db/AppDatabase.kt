@@ -1,6 +1,5 @@
 package com.foodrunner.db
 
-
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
@@ -13,13 +12,9 @@ import com.foodrunner.model.RestaurantDetailsResponse
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun RoomDao(): RoomDao
-
     companion object {
-
         private var INSTANCE: AppDatabase? = null
-
         private val sLock = Any()
-
         fun getInstance(context: Context): AppDatabase {
             synchronized(sLock) {
                 if (INSTANCE == null) {

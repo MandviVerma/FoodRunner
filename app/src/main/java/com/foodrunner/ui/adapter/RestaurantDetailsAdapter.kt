@@ -37,7 +37,6 @@ class RestaurantDetailsAdapter(
         private val tvMenuId = itemView.findViewById<TextView>(R.id.tv_menu_id)
         private val tvPrice = itemView.findViewById<TextView>(R.id.tv_price)
         private val addBtn = itemView.findViewById<Button>(R.id.btn_add)
-        private val ivFav = itemView.findViewById<ImageView>(R.id.iv_fav)
 
 
         fun setData(
@@ -51,18 +50,7 @@ class RestaurantDetailsAdapter(
                 (mContext?.getString(R.string.menu_price).toString()),
                 details.costForOne
             )
-//            if (details.isFav != null) {
-//                if (details.isFav!!)
-//                    ivFav.setImageResource(R.drawable.ic_fill_fav)
-//                else if (!details.isFav!!)
-//                    ivFav.setImageResource(R.drawable.ic_not_fav)
-//            } else
-//                ivFav.setImageResource(R.drawable.ic_not_fav)
-//
-//
-            ivFav.setOnClickListener {
-                mListener.onFavClick(position, it)
-            }
+
             addBtn.setOnClickListener {
                 mListener.onItemClick(position, it)
             }
@@ -72,7 +60,6 @@ class RestaurantDetailsAdapter(
 
     interface OnItemClickListener {
         fun onItemClick(position: Int, view: View)
-        fun onFavClick(position: Int, view: View)
 
     }
 

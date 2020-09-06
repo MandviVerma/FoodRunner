@@ -4,10 +4,8 @@ import androidx.room.*
 import com.foodrunner.model.FavoriteModel
 import com.foodrunner.model.RestaurantDetailsResponse
 
-
 @Dao
 interface RoomDao {
-
 
     @Insert
     fun addToFavorite(restaurant: FavoriteModel)
@@ -29,5 +27,4 @@ interface RoomDao {
 
     @Query("DELETE FROM MenuData")
     fun clearCart()
-
 }

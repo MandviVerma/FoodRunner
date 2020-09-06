@@ -15,16 +15,19 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.foodrunner.R
 import com.foodrunner.api.FoodRunnerService
 import com.foodrunner.db.AppDatabase
 import com.foodrunner.db.RoomDao
+import com.foodrunner.model.FavoriteModel
+import com.foodrunner.model.FetchRestaurantDetailResponse
 import com.foodrunner.model.Food
 import com.foodrunner.model.RestaurantDetailsResponse
 import com.foodrunner.ui.adapter.RestaurantDetailsAdapter
+import com.foodrunner.ui.fragments.HomeFragment
 import kotlinx.android.synthetic.main.activity_restaurant_details.*
-import kotlinx.android.synthetic.main.activity_restaurant_details.rl_retry
-import kotlinx.android.synthetic.main.activity_restaurant_details.txt_retry
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -41,8 +44,7 @@ class RestaurantDetailsActivity : AppCompatActivity() {
     var isFav : Boolean = false
     var restaurantDetailsList : ArrayList<RestaurantDetailsResponse.Data.MenuData> = ArrayList()
     var foodList : ArrayList<Food> = ArrayList()
-
-
+    lateinit var restaurantMenu : FetchRestaurantDetailResponse.Data.InternalData
     lateinit var dao: RoomDao
     lateinit var prefs: SharedPreferences
     var BASE_URL = "http://13.235.250.119/"
@@ -61,6 +63,8 @@ class RestaurantDetailsActivity : AppCompatActivity() {
         prefs = getSharedPreferences("Food Runner", Context.MODE_PRIVATE)!!
 
 
+        restaurantMenu = intent.getParcelableExtra("restaurantResponse")?: FetchRestaurantDetailResponse.Data.InternalData("","","","","")
+
         httpClient = OkHttpClient.Builder()
         retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -74,11 +78,16 @@ class RestaurantDetailsActivity : AppCompatActivity() {
         isFav =intent.getBooleanExtra("isFav",false)
         restaurantImage = intent.getStringExtra("imageUrl")?:""
 
-        //Glide.with(this).load(restaurantImage).apply(RequestOptions.centerCropTransform()).into(ivRestaurantImg)
+
+       // Glide.with(this).load(restaurantImage).apply(RequestOptions.centerCropTransform()).into(ivRestaurantImg)
 
         supportActionBar?.title = restaurantName
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        if(isFav)
+            ivSsFav.setImageResource(R.drawable.ic_fill_fav)
+        else
+            ivSsFav.setImageResource(R.drawable.ic_not_fav)
 
 
         if(isInternetAvailable()) {
@@ -100,6 +109,23 @@ class RestaurantDetailsActivity : AppCompatActivity() {
             intent.putExtra("imageUrl",restaurantImage)
             startActivity(intent)
         }
+        ivSsFav.setOnClickListener {
+            val v = it as ImageView
+            if (!isFav) {
+                isFav = true
+                addToFavDb(restaurantMenu)
+                v.setImageResource(R.drawable.ic_fill_fav)
+            } else if (!isFav) {
+                isFav = true
+                addToFavDb(restaurantMenu)
+                v.setImageResource(R.drawable.ic_fill_fav)
+            } else {
+                isFav = false
+                removeFromFavDb(restaurantMenu)
+                v.setImageResource(R.drawable.ic_not_fav)
+            }
+        }
+
 
         tvRetry.setOnClickListener {
             if(isInternetAvailable()){
@@ -110,7 +136,15 @@ class RestaurantDetailsActivity : AppCompatActivity() {
 
 
     }
+    private fun addToFavDb(restaurantMenu: FetchRestaurantDetailResponse.Data.InternalData) {
+        val favoriteModel = FavoriteModel(prefs.getString("phone", "") ?: "", restaurantMenu.id ?: "", restaurantMenu.name, restaurantMenu.rating, restaurantMenu.costForOne, restaurantMenu.imageUrl)
+        HomeFragment.AddFavoriteAsyncTask(this, favoriteModel, "Add").execute()
+    }
 
+    private fun removeFromFavDb(restaurantMenu: FetchRestaurantDetailResponse.Data.InternalData) {
+        val favoriteModel = FavoriteModel(prefs.getString("phone", "") ?: "", restaurantMenu.id ?: "", restaurantMenu.name, restaurantMenu.rating, restaurantMenu.costForOne, restaurantMenu.imageUrl)
+        HomeFragment.AddFavoriteAsyncTask(this, favoriteModel, "Remove").execute()
+    }
 
     private fun isInternetAvailable():Boolean{
         val conf = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -172,9 +206,7 @@ class RestaurantDetailsActivity : AppCompatActivity() {
 
                 }
 
-                override fun onFavClick(position: Int, view: View) {
 
-                }
 
 
             })
@@ -262,5 +294,6 @@ class RestaurantDetailsActivity : AppCompatActivity() {
                 restaurantDetailsData
         }
     }
+
 
 }

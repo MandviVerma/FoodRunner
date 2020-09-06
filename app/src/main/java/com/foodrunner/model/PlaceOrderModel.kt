@@ -2,7 +2,6 @@ package com.foodrunner.model
 
 import com.google.gson.annotations.SerializedName
 
-
 data class PlaceOrderModel(
     @SerializedName("user_id")
     var userId: String,

@@ -37,7 +37,7 @@
             />
 
         <ImageView
-            android:id="@+id/iv_fav"
+            android:id="@+id/ivSsFav"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"

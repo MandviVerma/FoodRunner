@@ -75,7 +75,15 @@
     <string name="mobile_number">Mobile Number</string>
     <string name="order_from_s">Order from : %s</string>
 
-
+    <string name="by_price">By Price</string>
+    <string name="below_200">Below ₹ 200</string>
+    <string name="_200_300">₹ 200 - ₹ 300</string>
+    <string name="_300_500">₹ 300 - ₹ 500</string>
+    <string name="by_rating">By Rating</string>
+    <string name="_4_amp_above"><![CDATA[4★ & above]]></string>
+    <string name="_3_amp_above"><![CDATA[3★ & above]]></string>
+    <string name="_2_amp_above"><![CDATA[2★ & above]]></string>
+    <string name="sort">Sort</string>
     <string name="email">Email</string>
     <string name="city">City</string>
 

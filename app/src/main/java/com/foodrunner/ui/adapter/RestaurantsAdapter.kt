@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.foodrunner.R
-import com.foodrunner.api.FetchRestaurantDetailResponse
+import com.foodrunner.model.FetchRestaurantDetailResponse
 
 
 class RestaurantsAdapter(
