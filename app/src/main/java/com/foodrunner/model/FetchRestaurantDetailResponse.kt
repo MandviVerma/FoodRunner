@@ -21,9 +21,9 @@ data class FetchRestaurantDetailResponse(
             @SerializedName("name")
             var name: String?,
             @SerializedName("rating")
-            var rating: String?,
+            var rating: String,
             @SerializedName("cost_for_one")
-            var costForOne: String?,
+            var costForOne: String,
             @SerializedName("image_url")
             var imageUrl: String?,
             var isFav :Boolean? = null

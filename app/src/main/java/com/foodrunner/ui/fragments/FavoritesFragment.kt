@@ -181,7 +181,7 @@ class FavoritesFragment : Fragment() {
                 favoriteList.forEach {
                     restaurantList.add(
                         FetchRestaurantDetailResponse.Data.InternalData(
-                            it.id, it.name, it.rating, it.costForOne, it.imageUrl, true
+                            it.id, it.name, it.rating?:"", it.costForOne?:"", it.imageUrl, true
                         )
                     )
                 }

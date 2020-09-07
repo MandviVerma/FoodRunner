@@ -40,11 +40,9 @@ class MainActivity : AppCompatActivity() {
 
     val fragment = HomeFragment()
     var menu: Menu? = null
-
-
+    lateinit var sortFilterListener: SortFilterClickListener
     lateinit var dao: RoomDao
     lateinit var prefs: SharedPreferences
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,12 +69,7 @@ class MainActivity : AppCompatActivity() {
         actionBarDrawerToggle.syncState()
         navigationView.setCheckedItem(R.id.Home)
 
-
         openMainFragment()
-
-//        supportActionBar?.title = "Food Runner"
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        supportActionBar?.setHomeButtonEnabled(true)
 
         val tvName = navigationView.getHeaderView(0).findViewById<TextView>(R.id.userName)
         val tvEmail = navigationView.getHeaderView(0).findViewById<TextView>(R.id.userEmail)
@@ -223,26 +216,33 @@ class MainActivity : AppCompatActivity() {
             return true
         } else if (id == R.id.action_sort) {
 
-            showSortFilter(
+            getSortFilterClickListener().sortFilterClick()
+
+            /*showSortFilter(
                 BottomSheetDialog(this, R.style.BaseBottomSheetDialog),
                 this, R.layout.dialog_sort
-            )
+            )*/
             return true
         }
 
         return super.onOptionsItemSelected(item)
     }
 
-    fun showSortFilter(
-        popupWindow: BottomSheetDialog?,
-        activity: MainActivity,
-        layout: Int
-    ): BottomSheetDialog? {
+
+    fun getSortFilterClickListener() :SortFilterClickListener{
+        return sortFilterListener
+    }
+
+    fun setSortFilterClickListener(sortFilterClickListener: SortFilterClickListener){
+        this.sortFilterListener = sortFilterClickListener
+    }
+
+    fun showSortFilter(popupWindow: BottomSheetDialog?,
+        activity: MainActivity, layout: Int): BottomSheetDialog? {
 
         val popupView = LayoutInflater.from(activity).inflate(layout, null)
         popupWindow?.setContentView(popupView)
         popupWindow?.show()
-
 
         var sortParam = ""
         popupView.btn_apply.isEnabled = false
@@ -305,4 +305,10 @@ class MainActivity : AppCompatActivity() {
         } else
             super.onBackPressed()
     }
+
+
+}
+
+interface SortFilterClickListener{
+    fun sortFilterClick()
 }

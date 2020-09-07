@@ -23,7 +23,9 @@ import com.foodrunner.api.FoodRunnerService
 import com.foodrunner.db.AppDatabase
 import com.foodrunner.db.RoomDao
 import com.foodrunner.model.FavoriteModel
+import com.foodrunner.ui.activities.MainActivity
 import com.foodrunner.ui.activities.RestaurantDetailsActivity
+import com.foodrunner.ui.activities.SortFilterClickListener
 import com.foodrunner.ui.adapter.RestaurantsAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
 import okhttp3.OkHttpClient
@@ -34,12 +36,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.sql.SQLException
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(),FilterInterface {
 
     var favoriteList : List<FavoriteModel> = ArrayList()
+    lateinit var sortFilterFragment :SortFilterFragment
 
     lateinit var restaurantsAdapter: RestaurantsAdapter
     val restaurantList = ArrayList<FetchRestaurantDetailResponse.Data.InternalData>()
+    var fullList = ArrayList<FetchRestaurantDetailResponse.Data.InternalData>()
 
     lateinit var dao: RoomDao
     lateinit var prefs: SharedPreferences
@@ -58,14 +62,9 @@ class HomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
-
         dao = AppDatabase.getInstance(context!!).RoomDao()
         prefs = activity?.getSharedPreferences("Food Runner", Context.MODE_PRIVATE)!!
-
-
         httpClient = OkHttpClient.Builder()
-
         retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(httpClient.build())
@@ -76,13 +75,16 @@ class HomeFragment : Fragment() {
         GetFavoriteList(context).execute()
         if(isInternetAvailable()) {
             apiCall()
-            rl_retry.visibility =GONE
-
-        }
+            rl_retry.visibility =GONE }
         else{
             rl_retry.visibility = VISIBLE
         }
 
+        (activity as MainActivity).setSortFilterClickListener(object : SortFilterClickListener{
+            override fun sortFilterClick() {
+                openSortFilterFragment()
+            }
+        })
 
         restaurantsAdapter = restaurantList.let { it ->
             RestaurantsAdapter(context, it, object : RestaurantsAdapter.OnItemClickListener {
@@ -143,6 +145,11 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun openSortFilterFragment() {
+        sortFilterFragment =  SortFilterFragment(this)
+        sortFilterFragment.show(parentFragmentManager,"Sort Filter")
+    }
+
 
     private fun addToDb(restaurantDetail: FetchRestaurantDetailResponse.Data.InternalData) {
         val favoriteModel = FavoriteModel(prefs.getString("phone","")?:""
@@ -191,7 +198,8 @@ class HomeFragment : Fragment() {
                 response.body()?.data?.data?.forEach {
                     restaurantList.add(it!!)
                 }
-
+                fullList.clear()
+                fullList.addAll(restaurantList)
                 if(favoriteList.isNotEmpty()) {
                     favoriteList.forEach { favoriteRestaurant ->
                         restaurantList.forEach { it1 ->
@@ -238,12 +246,7 @@ class HomeFragment : Fragment() {
 
     }
 
-
-
-
-
-
-    public class AddFavoriteAsyncTask(
+    class AddFavoriteAsyncTask(
         private var context: Context?,
         private var favoriteModel: FavoriteModel,
         private var param: String
@@ -324,6 +327,84 @@ class HomeFragment : Fragment() {
         super.onResume()
         GetFavoriteList(context).execute()
         apiCall()
+    }
+
+
+    override fun OnApplyClick(price1: Boolean, price2: Boolean, price3: Boolean,
+                              rating1: Boolean, rating2: Boolean, rating3: Boolean, cost:Boolean, rating:Boolean) {
+        restaurantList.clear()
+        restaurantList.addAll(fullList)
+        val tempList  = ArrayList<FetchRestaurantDetailResponse.Data.InternalData>()
+        if(price1){
+            tempList.clear()
+            restaurantList.forEach {
+                if(it.costForOne.toInt()<=200){
+                    tempList.add(it)
+                }
+            }
+            restaurantList.clear()
+            restaurantList.addAll(tempList)
+        }
+        if(price2){
+            tempList.clear()
+            restaurantList.forEach {
+                if(it.costForOne.toInt()> 200 &&  it.costForOne.toInt()>= 300 ){
+                    tempList.add(it)
+                }
+            }
+            restaurantList.clear()
+            restaurantList.addAll(tempList)
+        }
+        if(price3){
+            tempList.clear()
+            restaurantList.forEach {
+                if(it.costForOne.toInt()> 300){
+                    tempList.add(it)
+                }
+            }
+            restaurantList.clear()
+            restaurantList.addAll(tempList)
+        }
+        if(rating1){
+            tempList.clear()
+            restaurantList.forEach {
+                if(it.rating.toDouble()>= 4.0  ){
+                    tempList.add(it)
+                }
+            }
+            restaurantList.clear()
+            restaurantList.addAll(tempList)
+        }
+        if(rating2){
+            tempList.clear()
+            restaurantList.forEach {
+                if(it.rating.toDouble()>= 3.0 &&  it.rating.toDouble()< 4.0 ){
+                    tempList.add(it)
+                }
+            }
+            restaurantList.clear()
+            restaurantList.addAll(tempList)
+        }
+        if(rating3){
+            tempList.clear()
+            restaurantList.forEach {
+                if(it.rating.toDouble()>= 2.0 &&  it.rating.toDouble()< 3.0 ){
+                    tempList.add(it)
+                }
+            }
+            restaurantList.clear()
+            restaurantList.addAll(tempList)
+        }
+
+        restaurantsAdapter.notifyDataSetChanged()
+        sortFilterFragment.dismiss()
+
+        if(restaurantList.isEmpty()){
+          //  rl_noResult.visibility =VISIBLE
+        }else{
+            //rl_noResult.visibility =GONE
+
+        }
     }
 }
 
